@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -11,12 +12,29 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        // return Student::all();
+
+        // return Student::where('province', 'Kansas')
+        //     ->orWhere('province', 'Alaska')
+        //     ->orWhere('fname', 'Angus')
+        //     ->get();
+
+        // return Student::where('fname', 'like', '%t%')->get();
+
+        // return Student::orderBy('city', 'desc')->get();
+        // return Student::limit(7)->get();
+
+        // return Student::whereIn('id', [1,3,5,7,9,11])->get();
+        // return Student::whereNotIn('id', [1,3,5,7,9,11])->get();
+
+        // return Student::where('province', 'Hawaii')->first(); FIRST
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
+
     public function create()
     {
         //
@@ -35,7 +53,13 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // return Student::find($id);
+
+        // $student = Student::find($id);
+        // return $student->fname . ' ' . $student->lname;
+
+        $student = Student::find($id);
+         return $student->fullname;
     }
 
     /**

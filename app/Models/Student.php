@@ -22,5 +22,10 @@ class Student extends Model
         'birthdate'
     ];
 
+    protected $appends = ['fullname'];
+    public function getFullnameAttribute()
+    {
+        return $this->firstname .' '. $this->lastname;
+    }
     // protected $guarded = ['zip];
 }
