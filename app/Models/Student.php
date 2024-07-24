@@ -10,17 +10,17 @@ class Student extends Model
     use HasFactory;
 
     protected $table = "students";
-    protected $fillable = [
-        'fname',
-        'lname',
-        'email',
-        'phone',
-        'address',
-        'city',
-        'province',
-        'zip',
-        'birthdate'
-    ];
+    // protected $fillable = [
+    //     'fname',
+    //     'lname',
+    //     'email',
+    //     'phone',
+    //     'address',
+    //     'city',
+    //     'province',
+    //     'zip',
+    //     'birthdate'
+    // ];
 
     protected $appends = ['fullname'];
     public function getFullnameAttribute()
