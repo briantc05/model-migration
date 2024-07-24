@@ -14,7 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         //
         $middleware->validateCsrfTokens(except:[
             'http://modelcolcol.test/students',
-            'http://modelcolcol.test/students/31',
+            'http://modelcolcol.test/students/32',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
