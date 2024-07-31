@@ -56,6 +56,18 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'province' => 'required',
+            'zip' => 'required',
+            'birthdate' => 'required|date',
+        ]);
+
         //
         $student = new Student();
         $student->fname = $request['fname'];
@@ -68,6 +80,7 @@ class StudentController extends Controller
         $student->zip = $request['zip'];
         $student->birthdate = $request['birthdate'];
         $student->save();
+
 
         return redirect()->to('students');
 
@@ -100,7 +113,7 @@ class StudentController extends Controller
     public function edit(string $id)
     {
         //
-        $data['students'] = Student::all();
+        $data['students'] = Student::find($id);
         return view ('students.edit', $data);
     }
 
@@ -122,7 +135,7 @@ class StudentController extends Controller
         $student->birthdate = $request['birthdate'];
         $student->save();
 
-        return redirect()->back();
+        return redirect()->to('students');
     }
 
     /**

@@ -38,7 +38,7 @@
                             <td> {{ $student-> birthday }} </td>
                             <td>
                                 <a href="{{ url('students', $student->id) }}/edit" class="btn btn-outline-success">Edit</a>
-                                <form action=" {{  url('students', $student->id) }}"" method="POST">
+                                <form action=" {{  url('students', $student->id) }}" method="POST">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Sure kana ba?')">Delete</button>
